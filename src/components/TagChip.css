@@ -1,0 +1,19 @@
+.tag-chip {
+	padding: 4px 8px;
+	border-radius: 20px;
+	background: lightgray;
+	display: inline-block;
+}
+
+.tag-chip span {
+	font-size: 11px;
+	margin-right: 4px;
+	line-height: 16px;
+}
+
+.tag-chip button {
+	outline: none;
+	border: none;
+	background: none;
+	cursor: pointer;
+}
