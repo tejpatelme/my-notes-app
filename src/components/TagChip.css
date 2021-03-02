@@ -1,5 +1,6 @@
 .tag-chip {
-	padding: 4px 8px;
+	padding: 2px 8px;
+	margin-right: 2px;
 	border-radius: 20px;
 	background: lightgray;
 	display: inline-block;
@@ -8,7 +9,7 @@
 .tag-chip span {
 	font-size: 11px;
 	margin-right: 4px;
-	line-height: 16px;
+	line-height: 12px;
 }
 
 .tag-chip button {

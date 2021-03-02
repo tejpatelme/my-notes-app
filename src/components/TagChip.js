@@ -1,10 +1,19 @@
 import "./TagChip.css";
 
-function TagChip({ tagname }) {
+function TagChip({ tagname, note, setNote }) {
+	const removeSelected = () => {
+		const newArr = note.tag.filter((tag) =>
+			tag === tagname ? false : true
+		);
+		setNote({
+			...note,
+			tag: newArr,
+		});
+	};
 	return (
 		<div className="tag-chip">
 			<span>{tagname}</span>
-			<button>x</button>
+			<button onClick={removeSelected}>x</button>
 		</div>
 	);
 }

@@ -1,10 +1,10 @@
 import "./App.css";
-import { TagChip } from "./components/TagChip";
+import { AddNote } from "./components/AddNote";
 
 function App() {
 	return (
 		<div className="App">
-			<TagChip tagname="product" />
+			<AddNote />
 		</div>
 	);
 }

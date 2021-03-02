@@ -1,16 +1,90 @@
 import { useState } from "react";
+import "./AddNote.css";
+import { TagChip } from "./TagChip";
+import { v4 as uuidv4 } from "uuid";
 
 function AddNote() {
-	const [pinned, setPinned] = useState(false);
+	const [notes, setNotes] = useState([
+		{
+			id: uuidv4(),
+			title: "Hello4",
+			text: "Add a note to get started",
+			tag: ["none"],
+			color: "white",
+			pinned: true,
+		},
+	]);
+	// console.log(notes);
+	const [note, setNote] = useState({
+		title: "",
+		text: "",
+		tag: ["none"],
+		color: "white",
+		pinnned: false,
+	});
+
+	const colors = ["white", "red", "purple", "yellow", "blue"];
+
+	const [tags, setTags] = useState(["personal", "work", "journal", "none"]);
+
+	const setTitle = (event) => setNote({ ...note, title: event.target.value });
+
+	const setText = (event) => setNote({ ...note, text: event.target.value });
+
+	const setTag = (item) => {
+		const match = note.tag.find((tag) => tag === item);
+		if (match) {
+			return;
+		} else {
+			setNote({
+				...note,
+				tag: [item, ...note.tag],
+			});
+		}
+	};
+
+	const setPinnedOrNot = () => setNote({ ...note, pinned: !note.pinned });
+
+	const setColor = (color) => setNote({ ...note, color: color });
+
+	const addNoteToList = () => {
+		console.log(note);
+		setNotes([
+			{
+				id: uuidv4(),
+				title: note.title,
+				text: note.text,
+				tag: note.tag,
+				color: note.color,
+				pinned: false,
+			},
+			...notes,
+		]);
+		setNote({
+			title: "",
+			text: "",
+			tag: ["none"],
+			color: "white",
+			pinned: false,
+		});
+	};
+
 	return (
-		<div>
-			<div>
-				<input type="text" placeholder="Title" />
-				<button>
-					{pinned ? (
+		<div className="addnote-container">
+			<div className="title-container">
+				<input
+					type="text"
+					value={note.title}
+					className="add-title"
+					onChange={setTitle}
+					placeholder="Title"
+				/>
+				{console.log(note.pinned)}
+				<button onClick={setPinnedOrNot}>
+					{note.pinned ? (
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							enablBackground="new 0 0 24 24"
+							enable-background="new 0 0 24 24"
 							height="24"
 							viewBox="0 0 24 24"
 							width="24"
@@ -43,13 +117,86 @@ function AddNote() {
 					)}
 				</button>
 			</div>
-			<textarea placeholder="Enter a note..."></textarea>
-			<div className="tag-holder"></div>
+			<textarea
+				value={note.text}
+				onChange={setText}
+				className="addtext"
+				placeholder="Enter a note..."
+			></textarea>
+			<div className="tag-holder">
+				{note.tag.map(
+					(item) =>
+						item !== "none" && (
+							<TagChip
+								key={item}
+								tagname={item}
+								note={note}
+								setNote={setNote}
+							/>
+						)
+				)}
+			</div>
 			<div className="note-controls">
 				<div className="customize-note">
-					<div className="color-picker"></div>
+					<div className="color-picker">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+						>
+							<path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+						</svg>
+						<div className="palette">
+							{colors.map((item) => (
+								<div
+									key={item}
+									onClick={() => {
+										setColor(item);
+										console.log(note.color, item);
+									}}
+									style={
+										item === note.color
+											? { border: "1px solid black" }
+											: { border: "none" }
+									}
+									className={`color-option ${item}`}
+								></div>
+							))}
+						</div>
+					</div>
+					<div className="label-selector">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							height="24"
+							viewBox="0 0 24 24"
+							width="24"
+						>
+							<path d="M0 0h24v24H0z" fill="none" />
+							<path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z" />
+						</svg>
+						<ul>
+							<li>
+								<input
+									placeholder="enter a tag"
+									type="text"
+									onKeyPress={(e) => {
+										if (e.key === "Enter") {
+											setTags([e.target.value, ...tags]);
+											e.target.value = "";
+										}
+									}}
+								/>
+							</li>
+							{tags.map((item) => (
+								<li key={item} onClick={() => setTag(item)}>
+									{item}
+								</li>
+							))}
+						</ul>
+					</div>
 				</div>
-				<button>ADD NOTE</button>
+				<button onClick={addNoteToList}>ADD NOTE</button>
 			</div>
 		</div>
 	);
