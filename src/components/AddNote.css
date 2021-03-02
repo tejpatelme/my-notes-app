@@ -58,6 +58,15 @@
 	max-height: 300px;
 }
 
+.addtext::-webkit-scrollbar {
+	width: 4px;
+}
+
+.addtext::-webkit-scrollbar-thumb {
+	background: gray;
+	border-radius: 20px;
+}
+
 .tag-holder {
 	padding: 12px 0;
 }
