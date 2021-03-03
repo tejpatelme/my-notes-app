@@ -12,6 +12,7 @@
 	font-size: 11px;
 	margin-right: 4px;
 	line-height: 12px;
+	user-select: none;
 }
 
 .tag-chip button {
