@@ -40,6 +40,7 @@
 	outline: none;
 	width: 100%;
 	font-weight: 500;
+	background: none;
 }
 
 .add-title::placeholder {
@@ -56,6 +57,7 @@
 	width: 100%;
 	min-height: 50px;
 	max-height: 300px;
+	background: none;
 }
 
 .addtext::-webkit-scrollbar {
@@ -93,8 +95,9 @@
 	display: none;
 	top: 24px;
 	padding: 6px;
-	border-radius: 16px;
-	background: grey;
+	/* border-radius: 16px; */
+	background: #e2e2e2;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 }
 
 .color-option {
@@ -111,7 +114,6 @@
 
 .white {
 	background: white;
-	border: 1px solid grey;
 }
 
 .red {
@@ -147,6 +149,7 @@
 
 .label-selector:hover > ul {
 	display: block;
+	background: white;
 }
 
 .label-selector li {
