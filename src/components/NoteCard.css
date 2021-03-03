@@ -1,0 +1,47 @@
+.note-card {
+	height: 255px;
+	padding: 16px;
+	border-radius: 8px;
+}
+
+.title {
+	font-weight: 500;
+	margin-bottom: 12px;
+}
+
+.text {
+	font-size: 14px;
+	height: 136px;
+	overflow-y: scroll;
+}
+
+.tags {
+	padding: 12px 0;
+	display: flex;
+	flex-flow: row nowrap;
+	overflow-x: scroll;
+}
+
+.text::-webkit-scrollbar {
+	width: 4px;
+}
+
+.text::-webkit-scrollbar-thumb {
+	background: gray;
+	border-radius: 20px;
+}
+
+.tags::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+}
+
+.tags::-webkit-scrollbar-thumb {
+	background: gray;
+	border-radius: 20px;
+}
+
+.note-card:hover {
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+	border: none;
+}
