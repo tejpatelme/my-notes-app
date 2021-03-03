@@ -2,11 +2,13 @@
 	padding: 2px 8px;
 	margin-right: 2px;
 	border-radius: 20px;
-	background: lightgray;
+	background: #d8d8d8;
+	opacity: 0.7;
 	display: inline-block;
 }
 
 .tag-chip span {
+	opacity: 1;
 	font-size: 11px;
 	margin-right: 4px;
 	line-height: 12px;
