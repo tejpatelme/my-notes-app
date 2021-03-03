@@ -1,0 +1,7 @@
+.notes-container {
+	margin: 32px auto auto;
+	max-width: 1024px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
+	gap: 16px;
+}
