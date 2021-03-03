@@ -1,0 +1,17 @@
+.tags-dropdown {
+	margin: 20px auto auto auto;
+	width: 200px;
+}
+
+label {
+	margin-right: 12px;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+select {
+	border: none;
+	padding: 8px;
+	border-radius: 2px;
+	outline: none;
+}
