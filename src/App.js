@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import { AddNote } from "./components/AddNote";
 import { v4 as uuidv4 } from "uuid";
+import { NotesContainer } from "./components/NotesContainer";
 
 function App() {
 	const [notes, setNotes] = useState([
@@ -18,6 +19,7 @@ function App() {
 	return (
 		<div className="App">
 			<AddNote notes={notes} setNotes={setNotes} />
+			<NotesContainer notes={notes} />
 		</div>
 	);
 }
