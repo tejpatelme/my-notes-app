@@ -3,7 +3,7 @@ import "./AddNote.css";
 import { TagChip } from "./TagChip";
 import { v4 as uuidv4 } from "uuid";
 
-function AddNote({ notes, setNotes }) {
+function AddNote({ notes, setNotes, tags, setTags }) {
 	const [note, setNote] = useState({
 		title: "",
 		text: "",
@@ -13,8 +13,6 @@ function AddNote({ notes, setNotes }) {
 	});
 	console.log(notes);
 	const colors = ["white", "red", "purple", "yellow", "blue"];
-
-	const [tags, setTags] = useState(["personal", "work", "journal", "all"]);
 
 	const setTitle = (event) => setNote({ ...note, title: event.target.value });
 
@@ -46,7 +44,7 @@ function AddNote({ notes, setNotes }) {
 					text: note.text,
 					tag: note.tag,
 					color: note.color,
-					pinned: false,
+					pinned: note.pinned,
 				},
 				...notes,
 			]);
