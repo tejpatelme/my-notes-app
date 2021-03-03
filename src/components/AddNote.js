@@ -124,6 +124,7 @@ function AddNote({ notes, setNotes }) {
 									tagname={item}
 									note={note}
 									setNote={setNote}
+									cross="x"
 								/>
 							);
 						else return null;
