@@ -9,4 +9,10 @@
 
 body {
 	padding: 16px;
+	background: #f6f6f6;
+}
+
+svg {
+	fill: #202124;
+	opacity: 0.71;
 }
