@@ -3,29 +3,18 @@ import "./AddNote.css";
 import { TagChip } from "./TagChip";
 import { v4 as uuidv4 } from "uuid";
 
-function AddNote() {
-	const [notes, setNotes] = useState([
-		{
-			id: uuidv4(),
-			title: "Hello4",
-			text: "Add a note to get started",
-			tag: ["none"],
-			color: "white",
-			pinned: true,
-		},
-	]);
-	// console.log(notes);
+function AddNote({ notes, setNotes }) {
 	const [note, setNote] = useState({
 		title: "",
 		text: "",
-		tag: ["none"],
+		tag: ["all"],
 		color: "white",
-		pinnned: false,
+		pinned: false,
 	});
-
+	console.log(notes);
 	const colors = ["white", "red", "purple", "yellow", "blue"];
 
-	const [tags, setTags] = useState(["personal", "work", "journal", "none"]);
+	const [tags, setTags] = useState(["personal", "work", "journal", "all"]);
 
 	const setTitle = (event) => setNote({ ...note, title: event.target.value });
 
@@ -49,28 +38,30 @@ function AddNote() {
 
 	const addNoteToList = () => {
 		console.log(note);
-		setNotes([
-			{
-				id: uuidv4(),
-				title: note.title,
-				text: note.text,
-				tag: note.tag,
-				color: note.color,
+		if (note.title !== "" || note.text !== "") {
+			setNotes([
+				{
+					id: uuidv4(),
+					title: note.title,
+					text: note.text,
+					tag: note.tag,
+					color: note.color,
+					pinned: false,
+				},
+				...notes,
+			]);
+			setNote({
+				title: "",
+				text: "",
+				tag: ["all"],
+				color: "white",
 				pinned: false,
-			},
-			...notes,
-		]);
-		setNote({
-			title: "",
-			text: "",
-			tag: ["none"],
-			color: "white",
-			pinned: false,
-		});
+			});
+		}
 	};
 
 	return (
-		<div className="addnote-container">
+		<div className={`addnote-container ${note.color}`}>
 			<div className="title-container">
 				<input
 					type="text"
@@ -123,19 +114,22 @@ function AddNote() {
 				className="addtext"
 				placeholder="Enter a note..."
 			></textarea>
-			<div className="tag-holder">
-				{note.tag.map(
-					(item) =>
-						item !== "none" && (
-							<TagChip
-								key={item}
-								tagname={item}
-								note={note}
-								setNote={setNote}
-							/>
-						)
-				)}
-			</div>
+			{note.tag.length > 1 && (
+				<div className="tag-holder">
+					{note.tag.map((item) => {
+						if (item !== "all")
+							return (
+								<TagChip
+									key={item}
+									tagname={item}
+									note={note}
+									setNote={setNote}
+								/>
+							);
+						else return null;
+					})}
+				</div>
+			)}
 			<div className="note-controls">
 				<div className="customize-note">
 					<div className="color-picker">
@@ -153,7 +147,6 @@ function AddNote() {
 									key={item}
 									onClick={() => {
 										setColor(item);
-										console.log(note.color, item);
 									}}
 									style={
 										item === note.color
@@ -188,11 +181,18 @@ function AddNote() {
 									}}
 								/>
 							</li>
-							{tags.map((item) => (
-								<li key={item} onClick={() => setTag(item)}>
-									{item}
-								</li>
-							))}
+							{tags.map((item) => {
+								if (item === "all") return null;
+								else
+									return (
+										<li
+											key={item}
+											onClick={() => setTag(item)}
+										>
+											{item}
+										</li>
+									);
+							})}
 						</ul>
 					</div>
 				</div>
