@@ -137,10 +137,16 @@ function EditNote({
 										type="text"
 										onKeyPress={(e) => {
 											if (e.key === "Enter") {
-												setTags([
-													e.target.value,
-													...tags,
-												]);
+												const match = tags.find(
+													(x) => x === e.target.value
+												);
+												if (match) {
+													e.target.value = "";
+												} else
+													setTags([
+														e.target.value,
+														...tags,
+													]);
 												e.target.value = "";
 											}
 										}}
