@@ -17,10 +17,11 @@
 	right: 16px;
 }
 
-.remove-button {
-	position: absolute;
-	bottom: 16px;
-	right: 16px;
+.note-buttons {
+	width: 100%;
+	padding: 8px 0 0 0;
+	display: flex;
+	justify-content: space-between;
 }
 
 .title {
@@ -37,7 +38,7 @@
 }
 
 .tags {
-	padding: 12px 0;
+	padding: 6px 0 12px 0;
 	display: flex;
 	flex-flow: row nowrap;
 	overflow-x: scroll;
