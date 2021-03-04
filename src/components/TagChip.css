@@ -13,6 +13,7 @@
 	margin-right: 4px;
 	line-height: 12px;
 	user-select: none;
+	white-space: nowrap;
 }
 
 .tag-chip button {
