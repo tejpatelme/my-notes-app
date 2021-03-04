@@ -76,6 +76,7 @@ function EditNote({
 						placeholder="Title"
 					/>
 					<button
+						tabIndex="-1"
 						onClick={() => {
 							setShowModal(false);
 						}}
