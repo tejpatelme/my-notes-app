@@ -114,22 +114,27 @@
 }
 
 .white {
+	transition-duration: 0.3s;
 	background: white;
 }
 
 .red {
+	transition-duration: 0.3s;
 	background: #f28b82;
 }
 
 .purple {
+	transition-duration: 0.3s;
 	background: #d7aefb;
 }
 
 .yellow {
+	transition-duration: 0.3s;
 	background: #fbbc04;
 }
 
 .blue {
+	transition-duration: 0.3s;
 	background: #aecbfa;
 }
 
