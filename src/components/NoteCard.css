@@ -2,6 +2,25 @@
 	height: 255px;
 	padding: 16px;
 	border-radius: 8px;
+	position: relative;
+}
+
+.note-card button {
+	background: none;
+	outline: none;
+	border: none;
+}
+
+.pin-button {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+}
+
+.remove-button {
+	position: absolute;
+	bottom: 16px;
+	right: 16px;
 }
 
 .title {
@@ -13,6 +32,8 @@
 	font-size: 14px;
 	height: 136px;
 	overflow-y: scroll;
+	width: 100%;
+	overflow-wrap: break-word;
 }
 
 .tags {
