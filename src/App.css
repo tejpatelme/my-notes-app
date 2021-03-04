@@ -12,7 +12,6 @@ body {
 	background: #f6f6f6;
 }
 
-svg {
-	fill: #202124;
+.icon {
 	opacity: 0.71;
 }
