@@ -53,9 +53,9 @@ function App() {
 		});
 	};
 
-	console.log(editNoteObj);
+	// console.log(editNoteObj);
 
-	console.log(selectedTag);
+	// console.log(selectedTag);
 
 	return (
 		<div className="App">

@@ -22,7 +22,7 @@ function NotesContainer({
 	const otherNotes = filteredArr.filter((item) =>
 		item.pinned ? false : true
 	);
-	console.log(pinnedNotes.length);
+	// console.log(pinnedNotes.length);
 	return (
 		<div className="notes-container">
 			{pinnedNotes.length >= 1 && (

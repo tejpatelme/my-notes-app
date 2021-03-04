@@ -7,7 +7,7 @@ import { TagChip } from "./TagChip";
 import { v4 as uuidv4 } from "uuid";
 
 function AddNote({ notes, setNotes, tags, setTags, note, setNote }) {
-	console.log(notes);
+	// console.log(notes);
 	const colors = ["white", "red", "purple", "yellow", "blue"];
 
 	const setTitle = (event) => setNote({ ...note, title: event.target.value });
@@ -31,7 +31,7 @@ function AddNote({ notes, setNotes, tags, setTags, note, setNote }) {
 	const setColor = (color) => setNote({ ...note, color: color });
 
 	const addNoteToList = () => {
-		console.log(note);
+		// console.log(note);
 		if (note.title !== "" || note.text !== "") {
 			setNotes([
 				{
@@ -64,8 +64,7 @@ function AddNote({ notes, setNotes, tags, setTags, note, setNote }) {
 					onChange={setTitle}
 					placeholder="Title"
 				/>
-				{console.log(note.pinned)}
-				<button onClick={setPinnedOrNot}>
+				<button tabIndex="-1" onClick={setPinnedOrNot}>
 					{note.pinned ? (
 						<img
 							className="icon"

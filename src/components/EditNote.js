@@ -37,7 +37,7 @@ function EditNote({
 	const setColor = (color) => setNote({ ...note, color: color });
 
 	const addNoteToList = () => {
-		console.log(note);
+		// console.log(note);
 		if (note.title !== "" || note.text !== "") {
 			setNotes(
 				notes.map((item) => {
@@ -75,7 +75,6 @@ function EditNote({
 						onChange={setTitle}
 						placeholder="Title"
 					/>
-					{console.log(note.pinned)}
 					<button
 						onClick={() => {
 							setShowModal(false);
