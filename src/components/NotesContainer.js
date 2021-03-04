@@ -1,7 +1,14 @@
 import { NoteCard } from "./NoteCard";
 import "./NotesContainer.css";
 
-function NotesContainer({ notes, selectedTag }) {
+function NotesContainer({
+	notes,
+	selectedTag,
+	setNotes,
+	showModal,
+	setShowModal,
+	editNote,
+}) {
 	const filteredArr = notes.filter((item) => {
 		if (selectedTag === "all") {
 			return true;
@@ -27,7 +34,10 @@ function NotesContainer({ notes, selectedTag }) {
 								key={item.id}
 								notes={notes}
 								note={item}
-								// setNotes={setNotes}
+								setNotes={setNotes}
+								showModal={showModal}
+								setShowModal={setShowModal}
+								editNote={editNote}
 							/>
 						))}
 					</div>
@@ -43,13 +53,13 @@ function NotesContainer({ notes, selectedTag }) {
 							key={item.id}
 							notes={notes}
 							note={item}
-							// setNotes={setNotes}
+							setNotes={setNotes}
+							showModal={showModal}
+							setShowModal={setShowModal}
+							editNote={editNote}
 						/>
 					))}
 				</div>
-				{/* {notes.map((item) => (
-				<NoteCard key={item.id} note={item} />
-			))} */}
 			</div>
 		</div>
 	);
