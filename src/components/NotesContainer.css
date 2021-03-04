@@ -6,29 +6,29 @@
 .pinned-notes-container {
 	margin: 24px auto 24px auto;
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(4, 244px);
 	gap: 16px;
 }
 
 .other-notes-container {
 	margin: 24px auto auto;
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(4, 244px);
 	gap: 16px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
 	.pinned-notes-container {
 		margin: 24px auto 24px auto;
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(3, minmax(200px, 310px));
 		gap: 16px;
 	}
 
 	.other-notes-container {
 		margin: 24px auto auto;
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(3, minmax(200px, 310px));
 		gap: 16px;
 	}
 }
@@ -37,19 +37,19 @@
 	.pinned-notes-container {
 		margin: 24px auto 24px auto;
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, minmax(206px, 360px));
 		gap: 16px;
 	}
 
 	.other-notes-container {
 		margin: 24px auto auto;
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, minmax(206px, 360px));
 		gap: 16px;
 	}
 }
 
-@media screen and (max-width: 448px) {
+@media screen and (max-width: 460px) {
 	.pinned-notes-container {
 		margin: 24px auto 24px auto;
 		display: grid;
