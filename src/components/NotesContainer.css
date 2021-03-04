@@ -6,13 +6,61 @@
 .pinned-notes-container {
 	margin: 24px auto 24px auto;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
+	grid-template-columns: repeat(4, 1fr);
 	gap: 16px;
 }
 
 .other-notes-container {
 	margin: 24px auto auto;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
+	grid-template-columns: repeat(4, 1fr);
 	gap: 16px;
+}
+
+@media screen and (max-width: 1000px) {
+	.pinned-notes-container {
+		margin: 24px auto 24px auto;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 16px;
+	}
+
+	.other-notes-container {
+		margin: 24px auto auto;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 16px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.pinned-notes-container {
+		margin: 24px auto 24px auto;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 16px;
+	}
+
+	.other-notes-container {
+		margin: 24px auto auto;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 16px;
+	}
+}
+
+@media screen and (max-width: 448px) {
+	.pinned-notes-container {
+		margin: 24px auto 24px auto;
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 16px;
+	}
+
+	.other-notes-container {
+		margin: 24px auto auto;
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 16px;
+	}
 }
