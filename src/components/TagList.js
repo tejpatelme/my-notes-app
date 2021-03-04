@@ -11,7 +11,7 @@ function TagList({ tags, setSelectedTag }) {
 				id="sort"
 				defaultValue={{ label: "all", value: "all" }}
 			>
-				{tags.map((item) => (
+				{tags.sort().map((item) => (
 					<option key={item} label={item} value={item}></option>
 				))}
 			</select>
