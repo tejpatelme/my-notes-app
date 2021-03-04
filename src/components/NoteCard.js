@@ -55,7 +55,7 @@ function NoteCard({
 				>
 					<img className="icon" src={edit} alt="edit" />
 				</button>
-				<button onClick={removeNote} className="icon">
+				<button onClick={removeNote} className="icon remove">
 					<img className="icon" src={remove} alt="remove" />
 				</button>
 			</div>
