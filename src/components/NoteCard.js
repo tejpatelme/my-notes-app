@@ -1,11 +1,19 @@
 import "./NoteCard.css";
 import "./AddNote.css";
-import pin from "../assets/icons/push_pin-24px.svg";
+import pin from "../assets/icons/pin.svg";
 import pinfilled from "../assets/icons/pinfilled.svg";
-import remove from "../assets/icons/delete-24px.svg";
+import remove from "../assets/icons/delete.svg";
+import edit from "../assets/icons/edit.svg";
 import { TagChip } from "./TagChip";
 
-function NoteCard({ note, notes, setNotes }) {
+function NoteCard({
+	note,
+	notes,
+	setNotes,
+	showModal,
+	setShowModal,
+	editNote,
+}) {
 	const changePinned = () => {
 		setNotes(
 			notes.map((item) =>
@@ -17,14 +25,15 @@ function NoteCard({ note, notes, setNotes }) {
 	const removeNote = () => {
 		setNotes(notes.filter((item) => (item.id === note.id ? false : true)));
 	};
+
 	return (
 		<div className={`note-card ${note.color}`}>
 			<div className="title">{note.title}</div>
 			<button className="pin-button" onClick={changePinned}>
 				{note.pinned ? (
-					<img src={pinfilled} alt="pin" />
+					<img className="icon" src={pinfilled} alt="pinfilled" />
 				) : (
-					<img src={pin} alt="pin" />
+					<img className="icon" src={pin} alt="pin" />
 				)}
 			</button>
 			<div className="text">{note.text}</div>
@@ -35,9 +44,19 @@ function NoteCard({ note, notes, setNotes }) {
 					else return null;
 				})}
 			</div>
-			<button onClick={removeNote} className="remove-button">
-				<img src={remove} alt="remove" />
-			</button>
+			<div className="note-buttons">
+				<button
+					onClick={() => {
+						setShowModal(!showModal);
+						editNote(note.id);
+					}}
+				>
+					<img className="icon" src={edit} alt="edit" />
+				</button>
+				<button onClick={removeNote} className="icon">
+					<img className="icon" src={remove} alt="remove" />
+				</button>
+			</div>
 		</div>
 	);
 }
