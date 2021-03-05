@@ -128,7 +128,13 @@ function AddNote({ notes, setNotes, tags, setTags, note, setNote }) {
 									placeholder="enter a tag"
 									type="text"
 									onKeyPress={(e) => {
-										if (e.key === "Enter") {
+										if (
+											e.target.value === "" ||
+											e.target.value.trim().length === 0
+										) {
+											e.target.value = "";
+											return;
+										} else if (e.key === "Enter") {
 											const match = tags.find(
 												(x) => x === e.target.value
 											);
