@@ -7,66 +7,61 @@ import edit from "../assets/icons/edit.svg";
 import { TagChip } from "./TagChip";
 
 function NoteCard({
-	note,
-	notes,
-	setNotes,
-	showModal,
-	setShowModal,
-	editNote,
+  note,
+  notes,
+  setNotes,
+  showModal,
+  setShowModal,
+  editNote,
 }) {
-	const changePinned = () => {
-		setNotes(
-			notes.map((item) =>
-				item.id === note.id ? { ...item, pinned: !item.pinned } : item
-			)
-		);
-	};
+  const changePinned = () => {
+    setNotes(
+      notes.map((item) =>
+        item.id === note.id ? { ...item, pinned: !item.pinned } : item
+      )
+    );
+  };
 
-	const removeNote = () => {
-		setNotes(notes.filter((item) => (item.id === note.id ? false : true)));
-	};
+  const removeNote = () => {
+    setNotes(notes.filter((item) => (item.id === note.id ? false : true)));
+  };
 
-	return (
-		<div className={`note-card ${note.color}`}>
-			<div>
-				<div className="title-container">
-					<div className="title">{note.title}</div>
-					<button className="pin-button" onClick={changePinned}>
-						{note.pinned ? (
-							<img
-								className="icon"
-								src={pinfilled}
-								alt="pinfilled"
-							/>
-						) : (
-							<img className="icon" src={pin} alt="pin" />
-						)}
-					</button>
-				</div>
-				<div className="text">{note.text}</div>
-				<div className="tags">
-					{note.tag.map((item) => {
-						if (item !== "all")
-							return <TagChip key={item} tagname={item} />;
-						else return null;
-					})}
-				</div>
-			</div>
-			<div className="note-buttons">
-				<button
-					onClick={() => {
-						setShowModal(!showModal);
-						editNote(note.id);
-					}}
-				>
-					<img className="icon" src={edit} alt="edit" />
-				</button>
-				<button onClick={removeNote} className="icon remove">
-					<img className="icon" src={remove} alt="remove" />
-				</button>
-			</div>
-		</div>
-	);
+  return (
+    <div className={`note-card ${note.color}`}>
+      <div>
+        <div className="title-container">
+          <div className="title">{note.title}</div>
+          <button className="pin-button" onClick={changePinned}>
+            {note.pinned ? (
+              <img className="icon" src={pinfilled} alt="pinfilled" />
+            ) : (
+              <img className="icon" src={pin} alt="pin" />
+            )}
+          </button>
+        </div>
+        <div className="text">{note.text}</div>
+        <div className="tags">
+          {note.tag.map((item) => {
+            if (item !== "all") return <TagChip key={item} tagname={item} />;
+            else return null;
+          })}
+        </div>
+      </div>
+      <div className="note-buttons">
+        <button
+          onClick={() => {
+            setShowModal(!showModal);
+            editNote(note.id);
+          }}
+        >
+          <img className="icon" src={edit} alt="edit" />
+        </button>
+        <button onClick={removeNote} className="icon remove">
+          <img className="icon" src={remove} alt="remove" />
+        </button>
+      </div>
+    </div>
+  );
 }
 
 export { NoteCard };

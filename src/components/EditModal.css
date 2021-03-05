@@ -1,24 +1,24 @@
 .edit-modal {
-	top: 0;
-	left: 0;
-	position: fixed;
-	min-height: 100vh;
-	width: 100vw;
-	background: rgba(0, 0, 0, 0.8);
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  top: 0;
+  left: 0;
+  position: fixed;
+  min-height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .edit {
-	flex-grow: 1;
+  flex-grow: 1;
 }
 
 .edit .addtext {
-	height: 150px;
+  height: 150px;
 }
 
 .edit button {
-	margin-left: 12px;
-	padding: 0;
-	color: black;
+  margin-left: 12px;
+  padding: 0;
+  color: black;
 }

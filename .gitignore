@@ -12,6 +12,8 @@
 /build
 
 # misc
+/.vscode
+.gitattributes
 .DS_Store
 .env.local
 .env.development.local

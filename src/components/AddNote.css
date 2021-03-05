@@ -1,170 +1,170 @@
 .addnote-container {
-	position: relative;
-	max-width: 600px;
-	margin: auto;
-	border-radius: 8px;
-	padding: 12px;
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 }
 
 .addnote-container button {
-	padding: 4px;
-	font-family: inherit;
-	background: none;
-	outline: none;
-	border: none;
-	font-size: 12px;
-	font-weight: 700;
-	color: grey;
-	text-transform: uppercase;
-	cursor: pointer;
+  padding: 4px;
+  font-family: inherit;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  color: grey;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .title-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .title-container button {
-	background: none;
-	outline: none;
-	border: none;
+  background: none;
+  outline: none;
+  border: none;
 }
 
 .add-title {
-	font-family: inherit;
-	font-size: inherit;
-	padding: 8px;
-	border: none;
-	outline: none;
-	width: 100%;
-	font-weight: 500;
-	background: none;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 8px;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-weight: 500;
+  background: none;
 }
 
 .add-title::placeholder {
-	font-weight: 500;
+  font-weight: 500;
 }
 
 .addtext {
-	font-family: inherit;
-	font-size: inherit;
-	resize: none;
-	padding: 8px;
-	border: none;
-	outline: none;
-	width: 100%;
-	min-height: 50px;
-	max-height: 300px;
-	background: none;
+  font-family: inherit;
+  font-size: inherit;
+  resize: none;
+  padding: 8px;
+  border: none;
+  outline: none;
+  width: 100%;
+  min-height: 50px;
+  max-height: 300px;
+  background: none;
 }
 
 .addtext::-webkit-scrollbar {
-	width: 4px;
+  width: 4px;
 }
 
 .addtext::-webkit-scrollbar-thumb {
-	background: gray;
-	border-radius: 20px;
+  background: gray;
+  border-radius: 20px;
 }
 
 .tag-holder {
-	padding: 12px 0;
+  padding: 12px 0;
 }
 
 .note-controls {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .customize-note {
-	display: flex;
-	width: 80%;
-	align-items: center;
+  display: flex;
+  width: 80%;
+  align-items: center;
 }
 
 .color-picker {
-	position: relative;
-	margin-right: 16px;
-	cursor: pointer;
+  position: relative;
+  margin-right: 16px;
+  cursor: pointer;
 }
 
 .palette {
-	position: absolute;
-	display: none;
-	top: 24px;
-	padding: 6px;
-	/* border-radius: 16px; */
-	background: #e2e2e2;
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  display: none;
+  top: 24px;
+  padding: 6px;
+  /* border-radius: 16px; */
+  background: #e2e2e2;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 }
 
 .color-option {
-	height: 24px;
-	width: 24px;
-	border-radius: 50%;
-	display: inline-block;
-	margin: 2px;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 2px;
 }
 
 .color-picker:hover > .palette {
-	display: flex;
+  display: flex;
 }
 
 .white {
-	transition-duration: 0.3s;
-	background: white;
+  transition-duration: 0.3s;
+  background: white;
 }
 
 .red {
-	transition-duration: 0.3s;
-	background: #f28b82;
+  transition-duration: 0.3s;
+  background: #f28b82;
 }
 
 .purple {
-	transition-duration: 0.3s;
-	background: #d7aefb;
+  transition-duration: 0.3s;
+  background: #d7aefb;
 }
 
 .yellow {
-	transition-duration: 0.3s;
-	background: #fbbc04;
+  transition-duration: 0.3s;
+  background: #fbbc04;
 }
 
 .blue {
-	transition-duration: 0.3s;
-	background: #aecbfa;
+  transition-duration: 0.3s;
+  background: #aecbfa;
 }
 
 .label-selector {
-	position: relative;
-	cursor: pointer;
+  position: relative;
+  cursor: pointer;
 }
 
 .label-selector ul {
-	display: none;
-	position: absolute;
-	top: 26px;
-	left: 2px;
-	list-style-type: none;
-	text-align: left;
-	padding: 4px;
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-	z-index: 100;
+  display: none;
+  position: absolute;
+  top: 26px;
+  left: 2px;
+  list-style-type: none;
+  text-align: left;
+  padding: 4px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  z-index: 100;
 }
 
 .label-selector:hover > ul {
-	display: block;
-	background: white;
+  display: block;
+  background: white;
 }
 
 .label-selector li {
-	cursor: pointer;
-	padding: 2px 0;
+  cursor: pointer;
+  padding: 2px 0;
 }
 
 li:hover {
-	background: lightgray;
+  background: lightgray;
 }
