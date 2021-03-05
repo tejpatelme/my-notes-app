@@ -29,14 +29,20 @@ function NoteCard({
 	return (
 		<div className={`note-card ${note.color}`}>
 			<div>
-				<div className="title">{note.title}</div>
-				<button className="pin-button" onClick={changePinned}>
-					{note.pinned ? (
-						<img className="icon" src={pinfilled} alt="pinfilled" />
-					) : (
-						<img className="icon" src={pin} alt="pin" />
-					)}
-				</button>
+				<div className="title-container">
+					<div className="title">{note.title}</div>
+					<button className="pin-button" onClick={changePinned}>
+						{note.pinned ? (
+							<img
+								className="icon"
+								src={pinfilled}
+								alt="pinfilled"
+							/>
+						) : (
+							<img className="icon" src={pin} alt="pin" />
+						)}
+					</button>
+				</div>
 				<div className="text">{note.text}</div>
 				<div className="tags">
 					{note.tag.map((item) => {
