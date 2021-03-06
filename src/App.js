@@ -18,7 +18,7 @@ function App() {
       title: "Hello",
       text: "Add a note to get started",
       tag: ["all"],
-      color: "white",
+      color: "blue",
       pinned: true,
     },
   ]);
