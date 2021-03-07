@@ -84,6 +84,7 @@ function App() {
           setTags={setTags}
           note={editNoteObj}
           setNote={setEditNoteObj}
+          showModal={showModal}
           setShowModal={setShowModal}
         />
       )}
