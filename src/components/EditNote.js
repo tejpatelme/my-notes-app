@@ -4,6 +4,7 @@ import pinfilled from "../assets/icons/pinfilled.svg";
 import palette from "../assets/icons/palette.svg";
 import label from "../assets/icons/label.svg";
 import { TagChip } from "./TagChip";
+import { useEffect } from "react";
 
 function EditNote({
   note,
@@ -12,8 +13,22 @@ function EditNote({
   setNotes,
   tags,
   setTags,
+  showModal,
   setShowModal,
 }) {
+  const handleKeyDown = (e) => {
+    if (e.key === "Escape" && showModal) {
+      console.log("came inside condition");
+      setShowModal(false);
+      addNoteToList();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  });
+
   const colors = ["white", "red", "purple", "yellow", "blue"];
 
   const setTitle = (event) => setNote({ ...note, title: event.target.value });

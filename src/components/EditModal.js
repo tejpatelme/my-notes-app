@@ -8,6 +8,7 @@ function EditModal({
   setTags,
   setNote,
   setNotes,
+  showModal,
   setShowModal,
 }) {
   return (
@@ -19,6 +20,7 @@ function EditModal({
         setTags={setTags}
         note={note}
         setNote={setNote}
+        showModal={showModal}
         setShowModal={setShowModal}
       />
     </div>
