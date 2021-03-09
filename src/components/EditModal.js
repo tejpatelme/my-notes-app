@@ -12,7 +12,7 @@ function EditModal({
   setShowModal,
 }) {
   return (
-    <div className="edit-modal">
+    <div className="edit-modal" onClick={() => setShowModal(false)}>
       <EditNote
         notes={notes}
         setNotes={setNotes}

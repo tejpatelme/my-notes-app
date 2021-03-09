@@ -81,7 +81,10 @@ function EditNote({
   };
   return (
     <>
-      <div className={`addnote-container edit ${note.color}`}>
+      <div
+        className={`addnote-container edit ${note.color}`}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="title-container">
           <input
             type="text"
