@@ -16,11 +16,16 @@ function NotesContainer({
       return true;
     } else return false;
   });
+
   const pinnedNotes = filteredArr.filter((item) => item.pinned);
+
   const otherNotes = filteredArr.filter((item) => (item.pinned ? false : true));
-  // console.log(pinnedNotes.length);
+
   return (
     <div className="notes-container">
+      {pinnedNotes.length === 0 && otherNotes.length === 0 && (
+        <h4>No notes to show</h4>
+      )}
       {pinnedNotes.length >= 1 && (
         <div className="pinned-notes">
           <h5>PINNED</h5>
