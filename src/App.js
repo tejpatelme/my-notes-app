@@ -12,17 +12,6 @@ function App() {
     pinned: false,
   });
 
-  const initNote = [
-    {
-      id: uuidv4(),
-      title: "Hello",
-      text: "Add a note to get started",
-      tag: ["all"],
-      color: "blue",
-      pinned: true,
-    },
-  ];
-
   const [notes, setNotes] = useState([]);
 
   const [tags, setTags] = useState(["personal", "work", "journal", "all"]);
@@ -41,14 +30,25 @@ function App() {
   });
 
   const loadNotes = () =>
-    setNotes(JSON.parse(localStorage.getItem("notethatdown")) || initNote);
+    setNotes(
+      JSON.parse(localStorage.getItem("notethatdown")) || [
+        {
+          id: uuidv4(),
+          title: "Hello",
+          text: "Add a note to get started",
+          tag: ["all"],
+          color: "blue",
+          pinned: true,
+        },
+      ]
+    );
 
   const storeNotesToDb = () =>
     localStorage.setItem("notethatdown", JSON.stringify(notes));
 
-  useEffect(() => loadNotes(), []);
+  useEffect(loadNotes, []);
 
-  useEffect(() => storeNotesToDb(), [notes]);
+  useEffect(storeNotesToDb, [notes]);
 
   const editNote = (noteid) => {
     notes.forEach((item) => {
