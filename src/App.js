@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { EditModal, AddNote, NotesContainer, TagList } from "./components";
 
@@ -12,7 +12,7 @@ function App() {
     pinned: false,
   });
 
-  const [notes, setNotes] = useState([
+  const initNote = [
     {
       id: uuidv4(),
       title: "Hello",
@@ -21,7 +21,9 @@ function App() {
       color: "blue",
       pinned: true,
     },
-  ]);
+  ];
+
+  const [notes, setNotes] = useState([]);
 
   const [tags, setTags] = useState(["personal", "work", "journal", "all"]);
 
@@ -38,6 +40,16 @@ function App() {
     pinned: false,
   });
 
+  const loadNotes = () =>
+    setNotes(JSON.parse(localStorage.getItem("notethatdown")) || initNote);
+
+  const storeNotesToDb = () =>
+    localStorage.setItem("notethatdown", JSON.stringify(notes));
+
+  useEffect(() => loadNotes(), []);
+
+  useEffect(() => storeNotesToDb(), [notes]);
+
   const editNote = (noteid) => {
     notes.forEach((item) => {
       if (item.id === noteid) {
@@ -53,10 +65,6 @@ function App() {
     });
   };
 
-  // console.log(editNoteObj);
-
-  // console.log(selectedTag);
-
   return (
     <div className="App">
       <AddNote
@@ -67,7 +75,9 @@ function App() {
         note={note}
         setNote={setNote}
       />
+
       <TagList tags={tags} setSelectedTag={setSelectedTag} />
+
       <NotesContainer
         notes={notes}
         selectedTag={selectedTag}
@@ -76,6 +86,7 @@ function App() {
         setShowModal={setShowModal}
         editNote={editNote}
       />
+
       {showModal && (
         <EditModal
           notes={notes}
